@@ -184,15 +184,15 @@ def teknisk(Val):
       print("lägsta kurs(30 senaste dagarna) "+str(round(min(kurs), 1)))
       print("Högsta kurs(30 senaste dagarna) "+str(round(max(kurs), 1))+"\n")
   else: print("Felaktig inmatning, försök igen")
-def fundamental(Val):   #Utskrivning av fundamental analys
+def fundamental(Val): 
   if Val=="1":
     with open('Fundamental.txt', 'r') as a:
       print("\n"+"—————Fundamental analys för Ericsson————–")
-      data = a.read().split(",")          #Hämta data från fil
-      del data[4:16]                      #Ta bort data för övriga aktier 
+      data = a.read().split(",")    
+      del data[4:16]                    
       print("Företagets soliditet är "+data[1] + "%")    
       if float(data[2])<0: print("Företagets p/e-tal är negativt")
-      else: print("Företagets p/e-tal är positivt")        #Printa data
+      else: print("Företagets p/e-tal är positivt")   
       print("Företagets p/s tal är "+data[3]+"\n")
   elif Val=="2":
     print("\n"+"—————Fundamental analys för Electrolux————–")
@@ -224,29 +224,29 @@ def fundamental(Val):   #Utskrivning av fundamental analys
       else: print("Företagets p/e-tal är positivt")
       print("Företagets p/s tal är "+data[3]+"\n")
   else: print("Felaktig inmatning, försök igen")
-hämtaKurser()         #Kalla på metod vid start av program
-while (True):  #Loop för att hålla programmet igång
+hämtaKurser()  
+while (True):
   print("     -------------------Meny-------------------\n"+" 1.Fundamental analys (Vid långsiktigt aktieinnehav)\n"+" 2.Teknisk analys (Vid kort aktieinnehav)\n"+" 3.Rangordning av aktier med avseende på dess betavärde\n"+" 4.Avsluta")
-  val = input(" Vilket alternativ vill du välja? ")      #Printa meny och hämta val
+  val = input(" Vilket alternativ vill du välja? ")     
   if val == "1":
     print("\nEn fundamental analys kan utföras på följande aktier:\n"+" 1.Ericsson\n"+" 2.Electrolux\n"+" 3.AstraZeneca\n"+" 4.Tesla")
     Val= input("Vilken aktie vill du göra fundamental analys på? ")
-    fundamental(Val)          #Kalla på fundamental analys metod
+    fundamental(Val)    
   elif val == "2":
     print("\nEn teknisk analys kan utföras på följande aktier:\n"+" 1.Ericsson\n"+" 2.Electrolux\n"+" 3.AstraZeneca\n"+" 4.Tesla")
     Val= input("Vilken aktie vill du göra teknisk analys på? ")
-    teknisk(Val)         #Kalla på teknisk analys metod
+    teknisk(Val)   
   elif val == "3":
     temp= []
     Val="3"
-    for i in range(1,5):           #Loopa så betavärden på samtliga aktier hämtas
+    for i in range(1,5):    
       temp.append(betaVärde(str(i)))        
-    temp = sorted(temp,reverse=True)    #spara betavärden i lista och sorta
-    for ele in temp:                    #sorted() sorterar på storlek automatiskt
+    temp = sorted(temp,reverse=True)  
+    for ele in temp:            
       print(ele)        
     print("\n")
   elif val == "4":
-    os.system('clear')        #När programmet stängs använd os modulen och töm console
-    break        #Bryt while-loopen
+    os.system('clear')
+    break   
   else:
-    print("Felaktig inmatning, försök igen") #Felhantering
+    print("Felaktig inmatning, försök igen")
