@@ -1,5 +1,6 @@
 # Market Viewer
-School project. Previously using requests module now yfinance to scrape and work Yahoo Finance for historical price data for different symbols. 
+Project for introductory course in programming at KTH. 
+Previously using requests module now yfinance to scrape and work Yahoo Finance for historical price data for different symbols. 
 Will create separate text files containing historical data for the program to use in calculations. Both versions will give basic fundamental and technical analytics. 
 Market_Viewer has a GUI, stock_analysis simply prompts the user in terminal.
 
